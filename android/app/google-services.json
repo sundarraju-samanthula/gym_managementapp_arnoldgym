@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "367310603826",
+    "project_id": "arnoldgym-de70a",
+    "storage_bucket": "arnoldgym-de70a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367310603826:android:698b461dbe12892aef9e2b",
+        "android_client_info": {
+          "package_name": "com.example.arnoldgym"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7ZQrlhz7Ut0hFbt6O750fmXHQ4h2ACa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
