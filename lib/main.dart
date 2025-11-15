@@ -1,3 +1,4 @@
+import 'package:arnoldgym/home_screen.dart';
 import 'package:arnoldgym/login_screen.dart';
 import 'package:arnoldgym/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

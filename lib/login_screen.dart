@@ -1,58 +1,3 @@
-// import 'package:arnoldgym/home_screen.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/material.dart';
-// import 'package:google_sign_in/google_sign_in.dart';
-
-// class LoginPage extends StatefulWidget {
-//   const LoginPage({super.key});
-
-//   @override
-//   State<LoginPage> createState() => _LoginPageState();
-// }
-
-// class _LoginPageState extends State<LoginPage> {
-//   Future<UserCredential?> login() async {
-//     try {
-//       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-//       if (googleUser == null) {
-//         return null;
-//       }
-
-//       final GoogleSignInAuthentication googleAuth =
-//           await googleUser.authentication;
-
-//       final credential = GoogleAuthProvider.credential(
-//         accessToken: googleAuth.accessToken,
-//         idToken: googleAuth.idToken,
-//       );
-
-//       return await FirebaseAuth.instance.signInWithCredential(credential);
-//     } catch (e) {
-//       return null;
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: InkWell(
-//           onTap: () async {
-//             final UserCredential = await login();
-//             if (UserCredential != null) {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(builder: (_) => HomeScreen()),
-//               );
-//             }
-//           },
-//           child: Text("Google login"),
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:arnoldgym/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -94,12 +39,9 @@ class _LoginPageState extends State<LoginPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 158, 26, 26),
-              Color.fromARGB(255, 1, 5, 26),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
         child: Column(
@@ -130,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
 
             const SizedBox(height: 40),
 
-            /// Login Card
+            
             Container(
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.symmetric(horizontal: 30),
@@ -159,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 20),
 
-                  /// Google Login Button
+                  
                   InkWell(
                     onTap: () async {
                       final userCredential = await login();
