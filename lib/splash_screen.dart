@@ -39,7 +39,6 @@
 //   }
 // }
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:arnoldgym/auth_rename.dart';
 import 'package:arnoldgym/login_screen.dart';
 import 'package:arnoldgym/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -82,7 +81,7 @@ class SplashScreen extends StatelessWidget {
 
           nextScreen: snapshot.data == true
               ? const HomeScreen()
-              : const AuthWrapper(),
+              : const LoginPage(),
         );
       },
     );
