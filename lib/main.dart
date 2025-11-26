@@ -1,29 +1,39 @@
-import 'package:arnoldgym/home_screen.dart';
-import 'package:arnoldgym/login_screen.dart';
-import 'package:arnoldgym/splash_screen.dart';
+
+import 'package:arnoldgym/controllers/Auth_binding.dart';
+import 'package:arnoldgym/styles/colors.dart';
+import 'package:arnoldgym/styles/fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:get/get.dart';
+import 'routes/app_routes.dart';
 
-// ...
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return GetMaterialApp(
+      title: 'Your App',
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 63, 165, 239),
+        primaryColor: AppColors.primary,
+        scaffoldBackgroundColor: AppColors.background,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: AppColors.accent,
+        ),
+        textTheme: TextTheme(
+          headlineLarge: AppTextStyles.heading1,
+          headlineMedium: AppTextStyles.heading2,
+          bodyMedium: AppTextStyles.body1,
+          bodyLarge: AppTextStyles.button1,
+        
+        ),
+      
       ),
-      home: const SplashScreen(),
+      initialBinding: AuthBinding(),
+      initialRoute: AppRoutes.splash,
+      getPages: AppRoutes.pages,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

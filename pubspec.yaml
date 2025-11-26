@@ -36,11 +36,16 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_core: ^4.2.1
   firebase_auth: ^6.1.2
-  google_sign_in: ^6.1.0
+  google_sign_in: ^6.1.4
+
   animated_splash_screen: ^1.3.0
   page_transition: ^2.2.1
   lottie: ^3.3.2
   flutter_svg: ^2.2.2
+  dio: ^5.9.0
+  get: ^4.7.2
+  flutter_secure_storage: ^9.2.4
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +75,11 @@ flutter:
     - assets/loginimage.png
     - assets/googleimage.svg
     - assets/gym_user_avatar.png
+    - assets/onboarding.png
+    - assets/linkedin.png
+    - assets/facebook.png
+    - assets/google.png
+    - assets/facebook.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
