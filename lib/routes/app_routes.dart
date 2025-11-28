@@ -1,3 +1,4 @@
+import 'package:arnoldgym/controllers/auth_controller.dart';
 import 'package:arnoldgym/screens/onboarding/onboarding.dart';
 import 'package:get/get.dart';
 import '../screens/splash/splash_screen.dart';
