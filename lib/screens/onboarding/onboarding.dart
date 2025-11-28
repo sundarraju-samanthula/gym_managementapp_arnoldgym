@@ -7,27 +7,7 @@ import '../login/loginbottomsheet.dart';
 
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({Key? key}) : super(key: key);
-  final AuthController _authController = Get.find<AuthController>();
-
-  Future<void> _onGetStarted() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('hasOnboarded', true);
-
-    showModalBottomSheet(
-      context: Get.context!,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      barrierColor: Colors.black.withOpacity(0.5),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
-      ),
-      builder: (context) => LoginBottomSheet(
-        onGoogleTap: () => _authController.loginWithGoogle(),
-        onLinkedInTap: () => _authController.loginWithLinkedIn(),
-        onFacebookTap: () => _authController.loginWithFacebook(),
-      ),
-    );
-  }
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +74,7 @@ class OnboardingScreen extends StatelessWidget {
                     ],
                   ),
                   child: ElevatedButton(
-                    onPressed: _onGetStarted,
+                    onPressed: authController.onGetStarted,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
                       shadowColor: Colors.transparent,

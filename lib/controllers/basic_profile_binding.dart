@@ -9,7 +9,6 @@ import '../controllers/basic_profile_controller.dart';
 class BasicProfileBinding extends Bindings {
   @override
   void dependencies() {
-    
     Get.lazyPut<AuthApiService>(() {
       final dio = ApiClient().dio;
       return AuthApiService(dio);
@@ -20,10 +19,9 @@ class BasicProfileBinding extends Bindings {
       fenix: true,
     );
 
-    
     Get.lazyPut<BasicProfileController>(
-  () => BasicProfileController(),
-  fenix: true,
-);
+      () => BasicProfileController(),
+      fenix: true,
+    );
   }
 }

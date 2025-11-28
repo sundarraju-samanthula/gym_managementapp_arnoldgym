@@ -1,13 +1,15 @@
-
+import 'package:arnoldgym/routes/app_routes.dart';
+import 'package:arnoldgym/screens/login/loginbottomsheet.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../repositories/auth_repository.dart';
 import '../shared/utils/storage_util.dart';
 
 class AuthController extends GetxController {
   final AuthRepository _authRepository;
 
-  //webclientid
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: ['email'],
     serverClientId:
@@ -25,37 +27,29 @@ class AuthController extends GetxController {
       isLoading.value = true;
 
       final account = await _googleSignIn.signIn();
-      if (account == null) {
-        Get.snackbar('Login Cancelled', 'User cancelled Google sign-in');
-        return;
-      }
+      if (account == null) return;
 
       final auth = await account.authentication;
-      final idToken = auth.idToken;
-      if (idToken == null) {
-        throw Exception('Google sign-in failed: idToken is null');
-      }
+      if (auth.idToken == null) throw Exception('Invalid Google Login');
 
-      final authResponse = await _authRepository.login(idToken, 'manager');
+      final authResponse = await _authRepository.login(
+        auth.idToken!,
+        'manager',
+      );
       await StorageUtil.saveToken(authResponse.token);
       await StorageUtil.saveUserID(authResponse.userID);
+
       userID.value = authResponse.userID;
 
       final profile = await _authRepository.fetchProfile(authResponse.userID);
-      final bool profileComplete =
-          profile.containsKey('accCreated') &&
-          (profile['accCreated'] == 1 || profile['accCreated'] == true);
-      accCreated.value = profileComplete ? 1 : 0;
+
+      accCreated.value =
+          (profile['accCreated'] == true || profile['accCreated'] == 1) ? 1 : 0;
       await StorageUtil.setAccCreated(accCreated.value);
 
-      if (accCreated.value == 1) {
-        Get.offAllNamed('/dashboard');
-      } else {
-        Get.offAllNamed('/basic-profile');
-      }
-    } catch (e, st) {
-      print('Google Login Error: $e\n$st');
-      Get.snackbar('Login Error', e.toString());
+      Get.offAllNamed(accCreated.value == 1 ? '/dashboard' : '/basic-profile');
+    } catch (e) {
+      Get.snackbar('Login Failed', e.toString());
     } finally {
       isLoading.value = false;
     }
@@ -64,12 +58,41 @@ class AuthController extends GetxController {
   Future<void> logout() async {
     await StorageUtil.clearAll();
     await _googleSignIn.signOut();
-    userID.value = '';
-    accCreated.value = 0;
     Get.offAllNamed('/login');
   }
 
-  void loginWithLinkedIn() {}
+  Future<void> decideNavigation() async {
+    await Future.delayed(const Duration(milliseconds: 800));
 
+    final prefs = await SharedPreferences.getInstance();
+    final hasOnboarded = prefs.getBool('hasOnboarded') ?? false;
+    final profileDone = prefs.getBool('profileCompleted') ?? false;
+
+    if (!hasOnboarded) {
+      Get.offAllNamed(AppRoutes.onboarding);
+    } else if (!profileDone) {
+      Get.offAllNamed(AppRoutes.basicProfile);
+    } else {
+      Get.offAllNamed(AppRoutes.dashboard);
+    }
+  }
+
+  Future<void> onGetStarted() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('hasOnboarded', true);
+
+    showModalBottomSheet(
+      context: Get.context!,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) => LoginBottomSheet(
+        onGoogleTap: loginWithGoogle,
+        onLinkedInTap: loginWithLinkedIn,
+        onFacebookTap: loginWithFacebook,
+      ),
+    );
+  }
+
+  void loginWithLinkedIn() {}
   void loginWithFacebook() {}
 }
