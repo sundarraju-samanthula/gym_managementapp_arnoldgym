@@ -55,11 +55,11 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> logout() async {
-    await StorageUtil.clearAll();
-    await _googleSignIn.signOut();
-    Get.offAllNamed('/login');
-  }
+  // Future<void> logout() async {
+  //   await StorageUtil.clearAll();
+  //   await _googleSignIn.signOut();
+  //   Get.offAllNamed('/login');
+  // }
 
   Future<void> decideNavigation() async {
     await Future.delayed(const Duration(milliseconds: 800));
@@ -91,6 +91,13 @@ class AuthController extends GetxController {
         onFacebookTap: loginWithFacebook,
       ),
     );
+  }
+
+  Future<void> onLogout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+
+    Get.offAllNamed(AppRoutes.onboarding);
   }
 
   void loginWithLinkedIn() {}

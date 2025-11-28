@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,19 +36,31 @@ class OnboardingScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: Text(
-                  "All your business operations in one place, ready for you to take charge.",
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium?.copyWith(color: Colors.white),
+                child: Container(
+                  width: 328,
+                  height: 48,
+
+                  child: Text(
+                    "All your business operations in one place, ready for you to take charge.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: Divider(
-                  color: Colors.white.withOpacity(0.7),
-                  thickness: 1.5,
+                child: SizedBox(
+                  width: 328,
+                  height: 0,
+                  child: Divider(
+                    color: Colors.white.withOpacity(0.7),
+                    thickness: 1.5,
+                  ),
                 ),
               ),
               Padding(
@@ -56,14 +69,8 @@ class OnboardingScreen extends StatelessWidget {
                   vertical: 28,
                 ),
                 child: Container(
-                  width: double.infinity,
-                  height: 60,
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFFAAFF00), Color(0xFF88EE00)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
+                    color: Color.fromARGB(255, 184, 254, 34),
                     borderRadius: BorderRadius.circular(14),
                     boxShadow: [
                       BoxShadow(
@@ -73,18 +80,30 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: ElevatedButton(
-                    onPressed: authController.onGetStarted,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
+                  child: Container(
+                    height: 45,
+                    width: 328,
+
+                    child: ElevatedButton(
+                      onPressed: authController.onGetStarted,
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(4),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      "Get Started",
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      child: Text(
+                        "Get Started",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Colors.black,
+
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -140,18 +159,54 @@ class _AnimatedBusinessPhraseLeftAlignedState
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text("Manage Your", style: Theme.of(context).textTheme.headlineLarge),
-        AnimatedSwitcher(
-          duration: const Duration(milliseconds: 800),
-          switchInCurve: Curves.easeIn,
-          switchOutCurve: Curves.easeOut,
+        Container(
+          width: 328,
+          height: 48,
           child: Text(
-            phrases[_currentIndex],
-            key: ValueKey<String>(phrases[_currentIndex]),
-            style: Theme.of(context).textTheme.headlineMedium,
+            "Manage Your",
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 40,
+              color: Colors.white,
+              fontStyle: FontStyle.italic,
+              fontFamily: "BarlowSemiCondensed",
+            ),
           ),
         ),
-        Text("with us!", style: Theme.of(context).textTheme.headlineLarge),
+        Container(
+          width: 328,
+          height: 54,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 800),
+            switchInCurve: Curves.easeIn,
+            switchOutCurve: Curves.easeOut,
+            child: Text(
+              phrases[_currentIndex],
+              key: ValueKey<String>(phrases[_currentIndex]),
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 45,
+                color: Color.fromRGBO(184, 254, 34, 1),
+                fontStyle: FontStyle.italic,
+                fontFamily: "BarlowSemiCondensed",
+              ),
+            ),
+          ),
+        ),
+        Container(
+          width: 328,
+          height: 48,
+          child: Text(
+            "with us!",
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 40,
+              color: Colors.white,
+              fontStyle: FontStyle.italic,
+              fontFamily: "BarlowSemiCondensed",
+            ),
+          ),
+        ),
       ],
     );
   }

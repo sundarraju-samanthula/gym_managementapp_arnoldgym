@@ -18,7 +18,7 @@ class AppTextStyles {
 
   static const TextStyle heading3 = TextStyle(
     fontSize: 44,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: AppColors.textPrimary,
     fontStyle: FontStyle.italic,
   );

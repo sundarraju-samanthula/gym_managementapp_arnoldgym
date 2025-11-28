@@ -46,23 +46,49 @@ class LoginBottomSheet extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              Text("Hi there!", style: Theme.of(context).textTheme.bodyLarge),
-
-              const SizedBox(height: 8),
-
-              // Subtitle
               Text(
-                "Sign in to keep things running smoothly.",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium,
+                "Hi there!",
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontFamily: 'Poppins',
+                ),
               ),
 
+              Column(
+                children: [
+                  const SizedBox(height: 8),
+                  Text(
+                    "Log In and Take Charge",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
+                  // Subtitle
+                  Text(
+                    "Sign in to keep things running smoothly.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 24),
 
               // Google button
               _socialButton(
                 iconPath: "assets/google.png",
                 text: "Continue with Google",
+
                 onTap: onGoogleTap,
               ),
 
@@ -101,7 +127,7 @@ class LoginBottomSheet extends StatelessWidget {
       child: Container(
         height: 55,
         decoration: BoxDecoration(
-          color: Colors.white24, // semi-transparent background
+          color: Color.fromRGBO(47, 91, 108, 1),
           borderRadius: BorderRadius.circular(14),
         ),
         child: Row(
@@ -113,8 +139,9 @@ class LoginBottomSheet extends StatelessWidget {
               text,
               style: const TextStyle(
                 fontSize: 16,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 color: Colors.white,
+                fontFamily: 'Poppins',
               ),
             ),
           ],
