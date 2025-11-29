@@ -14,11 +14,6 @@ class BasicProfileBinding extends Bindings {
       return AuthApiService(dio);
     });
 
-    Get.lazyPut<AuthRepository>(
-      () => AuthRepository(Get.find<AuthApiService>()),
-      fenix: true,
-    );
-
     Get.lazyPut<BasicProfileController>(
       () => BasicProfileController(),
       fenix: true,

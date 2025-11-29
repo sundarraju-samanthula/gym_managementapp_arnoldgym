@@ -93,13 +93,6 @@ class AuthController extends GetxController {
     );
   }
 
-  Future<void> onLogout() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
-
-    Get.offAllNamed(AppRoutes.onboarding);
-  }
-
   void loginWithLinkedIn() {}
   void loginWithFacebook() {}
 }

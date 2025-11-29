@@ -1,7 +1,6 @@
-
 import 'package:arnoldgym/controllers/Auth_binding.dart';
-import 'package:arnoldgym/styles/colors.dart';
-import 'package:arnoldgym/styles/fonts.dart';
+import 'package:arnoldgym/shared/utils/styles/colors.dart';
+import 'package:arnoldgym/shared/utils/styles/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'routes/app_routes.dart';
@@ -26,9 +25,7 @@ class MyApp extends StatelessWidget {
           headlineMedium: AppTextStyles.heading2,
           bodyMedium: AppTextStyles.body1,
           bodyLarge: AppTextStyles.button1,
-        
         ),
-      
       ),
       initialBinding: AuthBinding(),
       initialRoute: AppRoutes.splash,

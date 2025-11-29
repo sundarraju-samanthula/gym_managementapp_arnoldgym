@@ -37,9 +37,6 @@ class OnboardingScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
                 child: Container(
-                  width: 328,
-                  height: 48,
-
                   child: Text(
                     "All your business operations in one place, ready for you to take charge.",
                     style: TextStyle(

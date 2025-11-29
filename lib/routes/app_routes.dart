@@ -1,10 +1,10 @@
-import 'package:arnoldgym/controllers/auth_controller.dart';
-import 'package:arnoldgym/screens/onboarding/onboarding.dart';
+
 import 'package:get/get.dart';
-import '../screens/splash/splash_screen.dart';
-import '../screens/profile/basic_profile_screen.dart';
-import '../screens/dashboard/dashboard_screen.dart';
 import '../controllers/basic_profile_controller.dart';
+import '../screens/profile/basic_profile_screen.dart';
+import '../screens/onboarding/onboarding.dart';
+import '../screens/splash/splash_screen.dart';
+import '../screens/dashboard/dashboard_screen.dart';
 
 class AppRoutes {
   static const splash = '/';
@@ -19,7 +19,11 @@ class AppRoutes {
       name: basicProfile,
       page: () => BasicProfileScreen(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<BasicProfileController>(() => BasicProfileController());
+        
+        Get.lazyPut<BasicProfileController>(
+          () => BasicProfileController(),
+          fenix: true,
+        );
       }),
     ),
     GetPage(name: dashboard, page: () => DashboardScreen()),

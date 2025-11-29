@@ -30,10 +30,11 @@ class BasicProfileController extends GetxController {
 
       await prefs.setBool('profileCompleted', true);
 
+      // Navigate to dashboard
       Get.offAllNamed('/dashboard');
     } catch (e, st) {
       errorMessage.value = "Failed: ${e.toString()}";
-      print('Error → $e\n$st');
+      debugPrint('BasicProfileController Error → $e\n$st');
     } finally {
       isLoading.value = false;
     }

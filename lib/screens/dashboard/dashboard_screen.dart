@@ -24,7 +24,7 @@ class DashboardScreen extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'welcome to the arnoldgym',
+          'You are on dashboard now ',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),

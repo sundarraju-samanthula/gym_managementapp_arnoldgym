@@ -1,4 +1,4 @@
-import 'package:arnoldgym/styles/colors.dart';
+import 'package:arnoldgym/shared/utils/styles/colors.dart';
 import 'package:flutter/material.dart';
 //import 'app_colors.dart';
 
