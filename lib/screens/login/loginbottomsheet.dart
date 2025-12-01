@@ -22,15 +22,10 @@ class LoginBottomSheet extends StatelessWidget {
       builder: (context, scrollController) {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromARGB(255, 46, 62, 80),
-                Color.fromARGB(190, 64, 97, 136),
-              ],
-            ),
+            color: Color.fromRGBO(85, 166, 196, 0.3),
+
             borderRadius: const BorderRadius.vertical(top: Radius.circular(26)),
           ),
           child: Column(
