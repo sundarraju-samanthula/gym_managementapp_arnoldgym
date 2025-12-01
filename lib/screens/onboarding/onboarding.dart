@@ -13,90 +13,92 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset('assets/onboarding.png', fit: BoxFit.cover),
-          ),
+      body: Center(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset('assets/onboarding.png', fit: BoxFit.cover),
+            ),
 
-          Positioned.fill(
-            child: Container(color: Colors.black.withOpacity(0.4)),
-          ),
+            Positioned.fill(
+              child: Container(color: Colors.black.withOpacity(0.4)),
+            ),
 
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: AnimatedBusinessPhraseLeftAligned(),
-              ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: Container(
-                  child: Text(
-                    "All your business operations in one place, ready for you to take charge.",
-                    style: Theme.of(context).textTheme.headlineLarge,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: AnimatedBusinessPhraseLeftAligned(),
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: Container(
+                    child: Text(
+                      "All your business operations in one place, ready for you to take charge.",
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: SizedBox(
-                  width: 328,
-                  height: 0,
-                  child: Divider(
-                    color: Colors.white.withOpacity(0.7),
-                    thickness: 1.5,
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: SizedBox(
+                    width: 328,
+                    height: 0,
+                    child: Divider(
+                      color: Colors.white.withOpacity(0.7),
+                      thickness: 1.5,
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 22,
-                  vertical: 28,
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 184, 254, 34),
-                    borderRadius: BorderRadius.circular(14),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.25),
-                        blurRadius: 8,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 22,
+                    vertical: 28,
                   ),
                   child: Container(
-                    height: 45,
-                    width: 328,
-
-                    child: ElevatedButton(
-                      onPressed: authController.onGetStarted,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(4),
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 184, 254, 34),
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.25),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
                         ),
-                      ),
-                      child: Text(
-                        "Get Started",
-                        style: Theme.of(context).textTheme.bodyLarge,
+                      ],
+                    ),
+                    child: Container(
+                      height: 45,
+                      width: 328,
+
+                      child: ElevatedButton(
+                        onPressed: authController.onGetStarted,
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(4),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Text(
+                          "Get Started",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
