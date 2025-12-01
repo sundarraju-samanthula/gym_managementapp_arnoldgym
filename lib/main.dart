@@ -1,6 +1,9 @@
 import 'package:arnoldgym/controllers/Auth_binding.dart';
-import 'package:arnoldgym/shared/utils/styles/colors.dart';
-import 'package:arnoldgym/shared/utils/styles/fonts.dart';
+import 'package:arnoldgym/global/styles/colors.dart';
+import 'package:arnoldgym/global/styles/fonts.dart';
+//import 'package:arnoldgym/shared/utils/styles%20copy/colors.dart';
+//import 'package:arnoldgym/shared/utils/styles%20copy/fonts.dart';
+// import 'package:arnoldgym/shared/utils/styles/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'routes/app_routes.dart';

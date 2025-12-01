@@ -1,4 +1,6 @@
-import 'package:arnoldgym/shared/utils/styles/colors.dart';
+//import 'package:arnoldgym/shared/utils/styles/colors.dart';
+//import 'package:arnoldgym/shared/utils/styles%20copy/colors.dart';
+import 'package:arnoldgym/global/styles/colors.dart';
 import 'package:flutter/material.dart';
 //import 'app_colors.dart';
 
@@ -37,6 +39,12 @@ class AppTextStyles {
     fontSize: 14,
     color: Colors.black,
 
+    fontFamily: 'Poppins',
+  );
+  static const TextStyle heading4 = TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
     fontFamily: 'Poppins',
   );
 }
