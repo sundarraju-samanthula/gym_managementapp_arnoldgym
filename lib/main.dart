@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           headlineLarge: AppTextStyles.heading1,
           headlineMedium: AppTextStyles.heading2,
+          headlineSmall: AppTextStyles.heading3,
+
           bodyMedium: AppTextStyles.body1,
           bodyLarge: AppTextStyles.button1,
         ),

@@ -4,23 +4,26 @@ import 'package:flutter/material.dart';
 
 class AppTextStyles {
   static const TextStyle heading1 = TextStyle(
-    fontSize: 34,
-    fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    color: Colors.white,
+    fontFamily: 'Poppins',
   );
 
   static const TextStyle heading2 = TextStyle(
-    fontSize: 50,
-    fontWeight: FontWeight.bold,
-    color: AppColors.textSecondary,
+    fontWeight: FontWeight.w700,
+    fontSize: 40,
+    color: Colors.white,
     fontStyle: FontStyle.italic,
+    fontFamily: "BarlowSemiCondensed",
   );
 
   static const TextStyle heading3 = TextStyle(
-    fontSize: 44,
     fontWeight: FontWeight.w700,
-    color: AppColors.textPrimary,
+    fontSize: 45,
+    color: Color.fromRGBO(184, 254, 34, 1),
     fontStyle: FontStyle.italic,
+    fontFamily: "BarlowSemiCondensed",
   );
 
   static const TextStyle body1 = TextStyle(
@@ -30,8 +33,10 @@ class AppTextStyles {
   );
 
   static const TextStyle button1 = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
     color: Colors.black,
+
+    fontFamily: 'Poppins',
   );
 }

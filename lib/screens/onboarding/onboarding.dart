@@ -39,12 +39,7 @@ class OnboardingScreen extends StatelessWidget {
                 child: Container(
                   child: Text(
                     "All your business operations in one place, ready for you to take charge.",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontFamily: 'Poppins',
-                    ),
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ),
               ),
@@ -93,13 +88,7 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                       child: Text(
                         "Get Started",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.black,
-
-                          fontFamily: 'Poppins',
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
                   ),
@@ -161,13 +150,7 @@ class _AnimatedBusinessPhraseLeftAlignedState
           height: 48,
           child: Text(
             "Manage Your",
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 40,
-              color: Colors.white,
-              fontStyle: FontStyle.italic,
-              fontFamily: "BarlowSemiCondensed",
-            ),
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
         Container(
@@ -180,13 +163,7 @@ class _AnimatedBusinessPhraseLeftAlignedState
             child: Text(
               phrases[_currentIndex],
               key: ValueKey<String>(phrases[_currentIndex]),
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 45,
-                color: Color.fromRGBO(184, 254, 34, 1),
-                fontStyle: FontStyle.italic,
-                fontFamily: "BarlowSemiCondensed",
-              ),
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
         ),
@@ -195,13 +172,7 @@ class _AnimatedBusinessPhraseLeftAlignedState
           height: 48,
           child: Text(
             "with us!",
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 40,
-              color: Colors.white,
-              fontStyle: FontStyle.italic,
-              fontFamily: "BarlowSemiCondensed",
-            ),
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
       ],
